@@ -8,18 +8,19 @@ This project is a TypeScript-based server and client application.
    ```bash
    git clone https://github.com/puneetverma0711/mcp-poc.git
    ```
-2. Navigate to the project directory:
+2. Install the dependencies:
    ```bash
-   cd mcp-server-and-client
-   ```
-3. Install the dependencies:
-   ```bash
-   npm install
+   npm install @modelcontextprotocol/sdk
+   npm i -D @modelcontextprotocol/inspector
+   
    ```
 
 ## Available Scripts
 
 In the project directory, you can run the following commands:
+
+### `npm run server:inspect`
+
 
 ### `npm run server:build`
 
