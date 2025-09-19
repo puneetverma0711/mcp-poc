@@ -12,6 +12,7 @@ This project is a TypeScript-based server and client application.
    ```bash
    npm install @modelcontextprotocol/sdk
    npm i -D @modelcontextprotocol/inspector
+   npm i zod
    
    ```
 
