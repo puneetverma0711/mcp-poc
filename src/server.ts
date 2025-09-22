@@ -151,63 +151,11 @@ server.tool(
       await fs.writeFile( jsonFilePath,JSON.stringify(workItemsDetails.value, null, 2)
       )
 
-      // Step 4: Generate HTML report
-      let htmlReport = `
-        <html>
-        <head>
-          <title>Azure DevOps Work Item Report</title>
-          <style>
-            body { font-family: sans-serif; }
-            table { border-collapse: collapse; width: 100%; }
-            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-            th { background-color: #f2f2f2; }
-          </style>
-        </head>
-        <body>
-          <h1>Azure DevOps Work Item Report</h1>
-          <table>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>State</th>
-              <th>Assigned To</th>
-              <th>Created Date</th>
-              <th>Changed Date</th>
-              <th>Tags</th>
-            </tr>`
-
-      for (const item of workItemsDetails.value) {
-        htmlReport += `
-            <tr>
-              <td>${item.fields["System.Id"]}</td>
-              <td>${item.fields["System.Title"]}</td>
-              <td>${item.fields["System.State"]}</td>
-              <td>${
-                item.fields["System.AssignedTo"]?.displayName || "Unassigned"
-              }</td>
-              <td>${new Date(
-                item.fields["System.CreatedDate"]
-              ).toLocaleString()}</td>
-              <td>${new Date(
-                item.fields["System.ChangedDate"]
-              ).toLocaleString()}</td>
-              <td>${item.fields["System.Tags"] || ""}</td>
-            </tr>`
-      }
-
-      htmlReport += `
-          </table>
-        </body>
-        </html>`
-
-      const htmlFilePath = "work_item_report.html"
-      await fs.writeFile(htmlFilePath, htmlReport)
-
       return {
         content: [
           {
             type: "text",
-            text: `Successfully fetched ${workItemsDetails.count} issues. Data saved to ${jsonFilePath} and HTML report generated at ${htmlFilePath}.`,
+            text: `Successfully fetched ${workItemsDetails.count} issues. Data saved to ${jsonFilePath}.`,
           },
         ],
       }
@@ -302,7 +250,7 @@ server.tool(
 
 
 
-server.tool(
+/*server.tool(
   "postReportToTeams",
   "Posts the work_item_report.html file as a formatted table to a Microsoft Teams channel.",
   {},
@@ -446,7 +394,7 @@ server.tool(
       };
     }
   }
-);
+);*/
 
 
 
